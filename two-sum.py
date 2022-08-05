@@ -61,10 +61,12 @@ const twoSum = (nums, target) => {
 # if it is
 # return [num[i] and the result of num[i] - target]
 
-
-    for n in nums:
-        value = abs(n - target)
-        if value in nums and value is not n:
-            return [nums.index(value), nums.index(n)]
-
-            #STILL WORKING ON IT
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]: 
+    for i, n in enumerate(nums): 
+        value_left = target - n #making it positive => 3
+        
+        if value_left in map:
+            return [map[value_left], i]
+        
+        map[nums[i]] = i
