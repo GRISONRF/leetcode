@@ -2,12 +2,7 @@
 
 # Return the running sum of nums.
 
-def runningSum(nums):
-    
-    # iterate through the list
-    # save the number in a count
-    #for each iteration, sum with the next number and 
-    
+def runningSum(nums): 
     
     count = 0
     answer = []
