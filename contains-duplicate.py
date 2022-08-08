@@ -24,7 +24,16 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         
-        nums_set = set(nums)
-        if len(nums) == len(nums_set):
+# if value appears at < twice. return true
+# if value appears once, return false.
+
+# Input: nums = [1,2,3,1]
+# Output: true
+
+        #checking if all numbers in nums are distincts.
+        if len(set(nums)) == len(nums):
             return False
-        return True
+
+        #if they are NOT distincts:
+        else:
+            return True
