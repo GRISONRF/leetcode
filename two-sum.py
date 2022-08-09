@@ -51,22 +51,20 @@ const twoSum = (nums, target) => {
 
 #Python
 
-# num = [3, 2, 4]
+# nums = [3, 2, 4]
 # target = 6
 
-# check what number + another number = target.
-
-# iterate throught the list, 
-# check if the num[i] - target is in num and it is not iqual to num[i]
-# if it is
-# return [num[i] and the result of num[i] - target]
+# target - a = b
+# return index of a and b
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]: 
-    for i, n in enumerate(nums): 
-        value_left = target - n #making it positive => 3
-        
-        if value_left in map:
-            return [map[value_left], i]
-        
-        map[nums[i]] = i
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+      
+      dict = {}
+      for i, n in enumerate(nums):   #=> 0, 3
+          remained_value = target - n
+          if remained_value in dict:
+              return [dict[remained_value], i]
+          else:
+              dict[n] = i
+
