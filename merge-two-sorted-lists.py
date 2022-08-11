@@ -17,26 +17,21 @@ class Solution:
         dummy = ListNode()
         output = dummy # setting the dummy LL to be the output result
         
-        
-        
-        
         # iterate through boths lists to find the smallest and keep printing it until find node.next == none.
         while list1 and list2:   # while we have the 2 lists
             if list1.val < list2.val:   # if the head value of first list is smaller than head value of second list
-                output.next = list1     # add the list1 (which is just the head of list1) in the output list as the next node
+                output.next = list1     # setting head of list1 to be the next node of otput. 
                 list1 = list1.next      # setting the next node in list to be the head - so we can compare to the head of list2 in the loop.
             else:   # if list2.val is greater than list1.val
                 output.next = list2     # add the head of list2 as output.next
                 list2 = list2.next      # set the head of list2 to be the list2.next -so we can compare to the head of list1
-            output = output.next # regardless of the condition, need to update the output -> in other words, add the 
+            output = output.next # regardless of the condition it was met, need to update the output 
                 
-         # If one of the lists is/get empty
+        # If one of the lists is/get empty
         if list1 == None:
-            output.next = list2
+            output.next = list2     #update all the rest of output with the list that is not empty
         
         if list2 == None:
             output.next = list1   
             
-        return output
-                
-                # ************** NOT DONE **********
+        return dummy.next
