@@ -37,3 +37,8 @@ def subdomainVisits(cpdomains):
     return [f"{count} {domain}" for domain, count in counts.items()] # list comprehension. "expression for item in list" in this case, : print count and domain for each key and value of the dict. 
 
 print(subdomainVisits(["9001 discuss.leetcode.com", "10 google.leetcode.com"]))
+
+
+#https://www.youtube.com/watch?v=pF7jZ8YL6Rs
+#https://pythontutor.com/render.html#mode=display
+#https://docs.python.org/3/library/collections.html
