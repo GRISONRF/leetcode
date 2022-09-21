@@ -10,13 +10,12 @@ Notice that "10:00" - "11:00" is considered to be within a one-hour period, whil
 import collections 
 import queue
 
-from email.policy import default
-
-
+ 
 def alertNames(keyName, keyTime):
 
+    #get the len for the names
     n = len(keyName)
-
+    #get na
     times = collections.defaultdict(list)
 
     for i in range(n):

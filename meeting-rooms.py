@@ -35,3 +35,5 @@ def canAttendMeetings(self, intervals):
         if i2.start < i1.end:
             return False
         return True
+
+print(canAttendMeetings([[1300, 1500], [930, 1200], [830, 845]]))
