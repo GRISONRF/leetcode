@@ -6,13 +6,16 @@
 
 def maxProfit(prices):
     #left = buy, right = sell        
-    l, r = 0 #setting 2 variables to represent left and right. initialized at 0
-    maxP = 0 #setting the max profit to 0
+        buy = 0
+        sell = 1
+        max_profit = 0
 
-    while r < len(prices):
-        if prices[r] > prices[l]:
-            profit = prices[r] - prices[l]
-            
-
+        while sell < len(prices):
+            if prices[sell] > prices[buy]:
+                profit = prices[sell] - prices[buy]
+                max_profit = max(max_profit, profit)
+            else: buy = sell
+            sell +=1
+        return max_profit
 
 maxProfit([7,1,5,3,6,4])
