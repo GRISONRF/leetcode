@@ -2,25 +2,28 @@
 
 You must write an algorithm with O(log n) runtime complexity."""
 
+from operator import indexOf
+
+
 def search(nums, target):
 
     l, r = 0, len(nums) - 1 #setting 2 pointers, left is the first element (0) right is the last element len(nums) - 1 **INDEX**)
-    # print(l)
-    # print(r)
+
+    if target not in nums:
+        return -1
 
     # we want to keep going until we check all the numbers / there is no more possibilities for us to get the result
     while l <= r:  #left pointer cant cross/pass the right pointer! 
         #find the middleway point
         m = (l + r) // 2 #m=2
+        
         if nums[m] > target: #if m is greater than target, means we passed the target, so we want to look on left side
-            r = m -1
+            r = m - 1
         elif nums[m] < target:
             l = m + 1
-        return m
-    return -1
-
-
-
+        else:
+            return m
+       
 
 
 # target is 5
