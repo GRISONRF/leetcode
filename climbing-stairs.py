@@ -24,10 +24,20 @@ https://leetcode.com/problems/climbing-stairs/
 
 def climbStairs(n):
     
-    for num in range(1, n + 1):
-        print(num)
+    one = 1
+    two = 1 
+
+    for i in range(n-1):
+        #set this temporary holder for one, so when we set two = one it gets the first value and not the updated one
+        temp = one
+        # set one to be igual one + two (1 step plus 2 steps)
+        one = one + two
+        # now two is igual to the last value of number one.
+            # that is what makes the 'pointers' to move, so we are always counting the 1 and 2 steps to get to the value of n.
+        two = temp
+
+    return one
 
 
-
-
-climbStairs(3)
+print(climbStairs(2))
+print(climbStairs(3))
