@@ -38,7 +38,7 @@ def findLength(nums1, nums2):
 
 
 
-    return 
+ 
 print(findLength([1,2,3,2,1], [3,2,1,4,7]))
 
 # https://www.youtube.com/watch?v=BgLVRkA8w6w -code from there

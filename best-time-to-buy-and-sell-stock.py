@@ -18,4 +18,4 @@ def maxProfit(prices):
             sell +=1
         return max_profit
 
-maxProfit([7,1,5,3,6,4])
+print(maxProfit([7,1,5,3,6,4]))
