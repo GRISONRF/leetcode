@@ -19,17 +19,27 @@ def isAnagram(s, t):
     if len(s) != len(t):
         return False
 
-    all_char = {}
+    countS = {}
+    countT = {}
 
-    for char in s:
-        if char not in all_char:
-            all_char[s] = 1
-        all_char[s] += 1
+    for i in range(len(s)):
+        #this is the same as saying countS[s[i]] += 1
+        countS[s[i]] = 1 + countS.get(s[i], 0)
+        countT[t[i]] = 1 + countT.get(t[i], 0)
 
-    for char2 in t:
-        if char2 not in all_char:
-            return False
+    if countS == countT:
         return True
+    return False
+
+
+
+
+    # for i in countS:
+    #     if countS[i] == countT[i]:
+    #         return True
+    #     return False
+        
+    # return countS, countT
 
 
 print(isAnagram("anagram", "nagaram"))
