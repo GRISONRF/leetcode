@@ -12,6 +12,15 @@
 #         else:
 #             return False
 
+""" for sorted solution uses less extra memory, but the time complexity is higer.
+memory is O(1) but time complexity is 
+
+for second solution MEMORY COMPLEXITY is O(n) because we are using a for loop interating throught the strings. MEMORY COMPLEXITY is also O(n) because we are building 2 new hashmaps
+
+"""
+
+##first answer is slower because uses sorted, so it is 
+
 
 
 def isAnagram(s, t):
@@ -30,16 +39,6 @@ def isAnagram(s, t):
     if countS == countT:
         return True
     return False
-
-
-
-
-    # for i in countS:
-    #     if countS[i] == countT[i]:
-    #         return True
-    #     return False
-        
-    # return countS, countT
 
 
 print(isAnagram("anagram", "nagaram"))
