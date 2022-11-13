@@ -15,23 +15,33 @@ class Solution:
         
         # creating a dummy linked list
         dummy = ListNode()
-        output = dummy # setting the dummy LL to be the output result
+        # setting the output result  to be the dummy LL
+        output = dummy
         
         # iterate through boths lists to find the smallest and keep printing it until find node.next == none.
-        while list1 and list2:   # while we have the 2 lists
-            if list1.val < list2.val:   # if the head value of first list is smaller than head value of second list
-                output.next = list1     # setting head of list1 to be the next node of otput. 
-                list1 = list1.next      # setting the next node in list to be the head - so we can compare to the head of list2 in the loop.
-            else:   # if list2.val is greater than list1.val
-                output.next = list2     # add the head of list2 as output.next
-                list2 = list2.next      # set the head of list2 to be the list2.next -so we can compare to the head of list1
-            output = output.next # regardless of the condition it was met, need to update the output 
-                
+        # while we have the 2 lists
+        # if the head value of first list is smaller than head value of second list
+        # setting head of list1 to be the next node of otput. 
+        # setting the next node in list to be the head - so we can compare to the head of list2 in the loop.
+        # if list2.val is greater than list1.val
+        # add the head of list2 as output.next
+        # set the head of list2 to be the list2.next -so we can compare to the head of list1
+        # regardless if the condition was met, need to update the output by saying the output is = to next output
         # If one of the lists is/get empty
-        if list1 == None:
-            output.next = list2     #update all the rest of output with the list that is not empty
+        #update all the rest of output with the list that is not empty
+
+        while list1 and list2:
+            if list1 < list2:
+                output.next = list1
+                list1 = list1.next
+            else:
+                output.next = list2
+                list2 = list2.next
+            output = output.next
+
+        if list1:
+            output.next = list1
+        if list2:
+            output.next = list2
         
-        if list2 == None:
-            output.next = list1   
-            
         return dummy.next
