@@ -53,9 +53,9 @@ S = maximal length of each word or string
 # check if string had all the letters of word
 # word1 -> each letter -> if this letter in string -> pop letter and store letter in a var ->  check if var == word.
 
-def check_words(words, string):
+def check_words(words, s):
     
-    # #check if string not letter
+    """ # #check if string not letter
     
     # for word in words:   # "baby"
     #     matched_letters = ""   #'b a b y'
@@ -95,9 +95,34 @@ def check_words(words, string):
             print(letters)
             if char not in letters:
                 return '-'
+ """
 
+    letters = {}
+    for char in s:
+        if char not in letters:
+            letters[char] = 1
+        else:
+            letters[char] += 1
 
+    
+    ans = []
+    for word in words:
+        match = ""
+        for char in word:
+            if char not in letters:
+                break
+            else:
+                if char in letters:
+                    match+=char
+                    if (letters[char]) > 1:
+                        letters[char] -= 1
+                    elif letters[char] <= 1:
+                        letters.pop(char, 0)
+        
+        ans.append(match)
 
+    print(match)
+    print(ans)
 
 
 
@@ -141,4 +166,14 @@ def check_words(words, string):
     
     
     
-print(check_words(["baby", "referee", "cat", "dada", "dog", "bird", "ax"],"tbaykkjlga"))
+print(check_words(["baby", "referee", "cat", "dada", "dog", "bird", "ax"],"bcanihjsrrrferet"))
+
+words = ["baby", "referee", "cat", "dada", "dog", "bird", "ax"]
+string1 = "ctay"
+string2 = "bcanihjsrrrferet"
+string3 = "tbaykkjlga"
+print(check_words(words, string1))
+print('\n')
+print(check_words(words, string2))
+print('\n')
+print(check_words(words, string3))

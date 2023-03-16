@@ -13,7 +13,7 @@
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         
-        # creating a dummy linked list
+        # creating a dummy linked list so that we dont have to worry with the edge case of having an empty list
         dummy = ListNode()
         # setting the output result  to be the dummy LL
         output = dummy
@@ -31,7 +31,7 @@ class Solution:
         #update all the rest of output with the list that is not empty
 
         while list1 and list2:
-            if list1 < list2:
+            if list1.val < list2.val:
                 output.next = list1
                 list1 = list1.next
             else:

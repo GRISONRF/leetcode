@@ -17,24 +17,64 @@ A count-paired domain is a domain that has one of the two formats "rep d1.d2.d3"
 import collections 
 
 def subdomainVisits(cpdomains):
+ 
+    # counts = collections.defaultdict(int)  # works as a counting. when I pass a key into counts, and do += 1, it will sum up to the value at every same key.
 
-    counts = collections.defaultdict(int)  # works as a counting. when I pass a key into counts, and do += 1, it will sum up to the value at every same key.
+    # for domain in cpdomains:   #domain = 9001 discuss.leetcode.com
+    #     # print(domain)
+    #     count, domain = domain.split()  # '9001', 'discuss.leetcode.com', assigning first split to count, second split to domain
+    #    # print((count))
+    #     # print(domain)
+    #     count = int(count)   #[9001]
+    #     domain = domain.split('.')  # ['discuss', 'leetcode', 'com']
+    #     # print(domain)
 
-    for domain in cpdomains:   #domain = 9001 discuss.leetcode.com
-        # print(domain)
-        count, domain = domain.split()  # '9001', 'discuss.leetcode.com', assigning first split to count, second split to domain
-       # print((count))
-        # print(domain)
-        count = int(count)
-        domain = domain.split('.')  # ['discuss', 'leetcode', 'com']
-        # print(domain)
+    #     #need to iterate through the domain to check each fragment of the domain and add to the dictionary with respective count.
 
-        #need to iterate through the domain to check each fragment of the domain and add to the dictionary with respective count.
-        for i in range(len(domain)):
-            counts['.'.join(domain[i:])] += count  #each iteration it checks for the "next piece" of fragment and add it to the dict but checking if it's already there -and sum the value- or adding the key:value.
+    #     #to itetrate adding one domain at a atime, just goin with the domain at changing index
+    #     for i in range(len(domain)):
+    #         if '.'.join(domain[i:]) in counts:
+    #             counts['.'.join(domain[i:])] += count
+    #         else: 
+    #             counts['.'.join(domain[i:])] = count
+
        
 
-    return [f"{count} {domain}" for domain, count in counts.items()] # list comprehension. "expression for item in list" in this case, : print count and domain for each key and value of the dict. 
+    # return [f"{count} {domain}" for domain, count in counts.items()] # list comprehension. "expression for item in list" in this case, : print count and domain for each key and value of the dict. 
+
+####################################################################################
+
+    # create a dict
+    counts = collections.defaultdict()
+
+    for domain in cpdomains:
+        count, domain = domain.split()
+        count = int(count)
+        domain = domain.split(".")
+        print(count, domain)
+
+        for i in range(len(domain)):
+            if ".".join(domain[i:]) not in counts:
+                counts[".".join(domain[i:])] = count
+            else:
+                counts[".".join(domain[i:])] += count
+        
+        print(counts)
+        ans = []
+        for domain, count in counts.items():
+            ans.append(f'{count} {domain}')
+        return ans
+            
+
+        
+
+
+
+
+
+
+
+
 
 print(subdomainVisits(["9001 discuss.leetcode.com", "10 google.leetcode.com"]))
 

@@ -74,7 +74,6 @@ def get_bad_access(records):
     return list(forgot_exit), list(forgot_enter)
 
     
-    
 print(get_bad_access([
 ["Martha", "exit"],
 ["Paul", "enter"],

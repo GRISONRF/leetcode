@@ -26,7 +26,7 @@ Input: s = "pbbcggttciiippooaais", k = 2
 Output: "ps"
 """
 
-def removeDuplicates(s):
+def removeDuplicates(s, k):
     #create a stack to keep track of the character and count
 
     #iterate through s
@@ -56,4 +56,4 @@ def removeDuplicates(s):
 
 
 
-print(removeDuplicates("aaabbbacd"))
+print(removeDuplicates("aaabbbacd", 2))

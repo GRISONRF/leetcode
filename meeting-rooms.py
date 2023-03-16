@@ -6,6 +6,11 @@
 #Input: [[7,10],[2,4]]
 #Output: true
 
+
+
+
+
+
 # Definition for an interval.
 # class Interval(object):
 #     def __init__(self, s=0, e=0):
@@ -23,17 +28,77 @@
 # say if the end of first interval is greater than start of second interval, return false.
 # else return true
 
-
-def canAttendMeetings(self, intervals):
+# def canAttendMeetings(self, intervals):
     
-   intervals.sort(key = lambda i : i.start)   # sorting intervals by the start time of each obj
+#    intervals.sort(key = lambda i : i.start)   # sorting intervals by the start time of each obj
 
-   for i in range(1, len(intervals)): # starts at 1 because I want to compare the first agains the second
-        i1 = i[i-1] # 1 - 1 = 0 // thats the first interval
-        i2 = i[i]
+#    for i in range(1, len(intervals)): # starts at 1 because I want to compare the first agains the second
+#         i1 = i[i-1] # 1 - 1 = 0 // thats the first interval
+#         i2 = i[i]
 
-        if i2.start < i1.end:
+#         if i2.start < i1.end:
+#             return False
+#         return True
+
+
+""" 
+input: list
+ouput: boolean
+
+are the intervals crossing one another? 
+is the starting time of an interval greater than the end time of another interval?
+
+sort the intervals by the starting time [s]  #[2,4][7,10]
+iterate through intervals and check if interval[e] > interval+1[s] return false. if not, return true      # if 4>7, return true
+
+"""
+
+def intervals(intervals):
+    
+    sorted_intervals = sorted(intervals, key = lambda i : i[0])
+
+    for i in range(len(sorted_intervals) - 1):
+        if sorted_intervals[i][1] > sorted_intervals[i+1][0]:       
             return False
-        return True
+    return True
 
-print(canAttendMeetings([[1300, 1500], [930, 1200], [830, 845]]))
+
+
+print(intervals([[0,30],[5,10],[15,20]]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

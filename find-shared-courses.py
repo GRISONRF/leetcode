@@ -3,8 +3,9 @@ You are a developer for a university. Your current project is to develop a syste
 Write a function that takes in a list of (student ID number, course name) pairs and returns, for every pair of students, a list of all courses they share.
 """
 
-"""
+""" Sample Input:
 student_course_pairs_1 = [
+  ["58", "Software Design"],
   ["58", "Linear Algebra"],
   ["94", "Art History"],
   ["94", "Operating Systems"],
@@ -15,31 +16,43 @@ student_course_pairs_1 = [
   ["17", "Political Science"],
   ["94", "Economics"],
   ["25", "Economics"],
-  ["58", "Software Design"],
 ]
-"""
+ 
+Sample Output (pseudocode, in any order):
+ 
+find_pairs(student_course_pairs_1) =>
+{
+  [58, 17]: ["Software Design", "Linear Algebra"]
+  [58, 94]: ["Economics"]
+  [58, 25]: ["Economics"]
+  [94, 25]: ["Economics"]
+  [17, 94]: []
+  [17, 25]: []
+} """
 
 
-# 58 has any class that is same as 9$????
-# YES! EC!
+
+# return as list of ID and course pairs
+# return list of all courses they share with friends
+
+# dict: studentID key and courses value
+#{ 58: SWE, LA, ME, EC; 94: AH, OS}
+
+#ans = {}
+#check every id with the others (nested loop)
+#check if the pair is already in dict (need to sort them before adding to the dict so it makes it easier to know if they are already added) and use intersection to find the courses they share. To use intersection the courses need to be in a set, so it's better to already add them as a set in the first fictionary when I'm creating it.
+
+
 
 
 def shared_courses(courses):
 
-    dictionary = {}
-    # iterate through the list 
-    # create a dic with the students ID as key and courses as values
-    # dict = {58: LA, ME, EC, SD, 94: AH, OP, EC}
+    students_courses = {}
+    for id, course in courses:
+        if id not in students_courses:
+            students_courses[students_courses]
 
-    for key, value in courses:
-        if key not in dictionary:
-            dictionary[key] = value
-        dictionary[key] = value
-    print(dictionary)
-
-
-
-shared_courses([
+print(shared_courses([
   ["58", "Linear Algebra"],
   ["94", "Art History"],
   ["94", "Operating Systems"],
@@ -51,13 +64,7 @@ shared_courses([
   ["94", "Economics"],
   ["25", "Economics"],
   ["58", "Software Design"],
-])
-
-
-
-
-
-
+]))
 
 
 
@@ -71,6 +78,7 @@ def findSharedCourses(student_course_pairs):
             student_courses[int(student)] = set()
         student_courses[int(student)].add(course)
     ans = {}
+
     for s1, c1 in student_courses.items():
         for s2, c2 in student_courses.items():
             if s1 == s2 or tuple(sorted((s1, s2))) in ans:
